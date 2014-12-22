@@ -17,17 +17,27 @@
 </head>
 <body>
   <div ng-controller="StoreController as store">
-    <div ng-repeat="product in store.products">
-      <div ng-hide="product.soldOut">
-      <h1> {{product.name}} </h1>
-      <h2> ${{product.price}}</h2>
-      <p> {{product.description}} </p>
-      <button ng-show="product.canPurchase"> Add to Cart </button>
-      </div>
-    </div>
+    <ul class="list-group">
+      <!--Product Container-->
+      <li class="list-group-item" ng-repeat="product in store.products">
+        <h3>
+          {{product.name}} <em class="pull-right">{{product.price | currency}}</em>
+        </h3>
+
+        <!-- Image Gallery -->
+        <div ng-show="product.images.length" class="gallery">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[0]}}"/>
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li ng-repeat="image in product.images" class="small-image pull-left thumbnail">
+              <img ng-src="{{image}}" alt=""/>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
-
-
 
 
   <!-- In production use:

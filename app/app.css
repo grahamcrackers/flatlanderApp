@@ -1,30 +1,46 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.img-wrap {
+  background: #f8f8f8;
+  height: 200px;
+  margin: 0 auto 20px;
+  padding: 10px;
+  width: 200px;
 }
 
-.menu:before {
-  content: "[";
+.img-thumbnails {
+  margin: 0 auto 10px;
+  width: 200px;
 }
 
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
+ul {
   padding: 0;
+}
+.img-thumbnails .thumbnail {
+  background: #f8f8f8;
+  border: 0;
+  margin-right: 25px;
+  min-height: 50px;
+}
+
+li.small-image {
+  width: 50px;
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.img-thumbnails .thumbnail:last-child {
+  margin-right: 0;
 }
