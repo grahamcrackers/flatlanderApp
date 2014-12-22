@@ -44,3 +44,18 @@ li.small-image {
 .img-thumbnails .thumbnail:last-child {
   margin-right: 0;
 }
+
+a {
+  color: #ac005f;
+}
+
+.nav-pills > li.active > a, .btn-primary, .btn-primary:focus, .btn-primary:hover {
+  background: #ac005f;
+
+  border: 0;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: #fff;
+  background-color: #ac005f;
+}

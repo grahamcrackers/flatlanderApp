@@ -16,6 +16,10 @@
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
+<header>
+  <h1 class="text-center">Flatlander Crafted Gems</h1>
+  <h2 class="text-center">- an Angular store -</h2>
+</header>
   <div ng-controller="StoreController as store">
     <ul class="list-group">
       <!--Product Container-->
@@ -25,9 +29,9 @@
         </h3>
 
         <!-- Image Gallery -->
-        <div ng-show="product.images.length" class="gallery">
+        <div ng-show="product.images.length" class="gallery" ng-controller="GalleryController as gallery">
           <div class="img-wrap">
-            <img ng-src="{{product.images[0]}}"/>
+            <img ng-src="{{product.images[gallery.current]}}"/>
           </div>
           <ul class="img-thumbnails clearfix">
             <li ng-repeat="image in product.images" class="small-image pull-left thumbnail">
@@ -35,6 +39,33 @@
             </li>
           </ul>
         </div>
+
+        <!-- Panels-->
+        <section ng-controller="PanelController as panel">
+          <ul class="nav nav-pills">
+            <li ng-class="{ active:panel.isSelected(1)}">
+              <a href ng-click="panel.selectTab(1)">Description</a>
+            </li>
+            <li ng-class="{ active:panel.isSelected(2)}">
+              <a href ng-click="panel.selectTab(2)">Specifications</a>
+            </li>
+            <li ng-class="{ active:panel.isSelected(3)}">
+              <a href ng-click="panel.selectTab(3)">Reviews</a>
+            </li>
+          </ul>
+          <div class="panel" ng-show="panel.tab === 1">
+            <h4>Description</h4>
+            <p>{{product.description}}</p>
+          </div>
+          <div class="panel" ng-show="panel.tab === 2">
+            <h4>Specifications</h4>
+            <blockquote>None yet</blockquote>
+          </div>
+          <div class="panel" ng-show="panel.tab === 3">
+            <h4>Reviews</h4>
+            <blockquote>None yet</blockquote>
+          </div>
+        </section>
       </li>
     </ul>
   </div>
@@ -48,6 +79,9 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
+  <script src="controllers/StoreCtrl.js"></script>
+  <script src="controllers/PanelCtrl.js"></script>
+  <script src="controllers/GalleryCtrl.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
   <script src="components/version/version.js"></script>
