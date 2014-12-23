@@ -1,7 +1,7 @@
 (function(){
     'use strict';
 
-    angular.module('gemStore.controllers', [])
+    angular.module('gemStore.controllers')
         .controller('StoreController', function StoreController(){
             this.products = gems;
         });
